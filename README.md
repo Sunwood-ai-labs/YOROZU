@@ -114,4 +114,7 @@ d:/Prj/GAG_Workspace/
     - `.agent/workflows/create-prompt-repo.md`
     - `.agent/workflows/review-repo-quality.md`
     - `.agent/workflows/generate-header-image.md`
+    - `.agent/workflows/create-release.md`
+    - `.agent/workflows/git-auto-commit.md`
+    - `.agent/workflows/create-yorozu-project-complete.md` (Master Workflow)
 
