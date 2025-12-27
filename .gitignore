@@ -4,3 +4,5 @@ ANTIGRAVITY_AGENT_CONTROL_SPEC copy.MD
 *.log
 .DS_Store
 Thumbs.db
+
+COMMIT_MSG.txt
