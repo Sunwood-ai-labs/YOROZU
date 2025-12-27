@@ -28,7 +28,11 @@ description: ユーザー指定のリポジトリを作成し、YOROZUブラン�
 
   ```bash
   git add .
+  ```
+  ```bash
   git commit -m "✨ style: YOROZUブランド（ヘッダー・README）を適用" -m "- Miyabiスタイルヘッダー画像の生成" -m "- READMEレイアウトの標準化とAlerts導入"
+  ```
+  ```bash
   git push origin main
   ```
 

@@ -1,6 +1,7 @@
 ---
 description: git statusとdiffを解析し、適切なブランチ作成・日本語での粒度の細かいコミット・マージを自動化します
 ---
+
 # 🤖 Git 自動コミットワークフロー (V4.2 Lite)
 
 このワークフローは、[Sunwood-ai-labs MysticLibrary](https://github.com/Sunwood-ai-labs/MysticLibrary) のコミット戦略に基づき、変更内容を解析して適切な粒度でコミットを行います。
@@ -9,6 +10,8 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
 - 以下のコマンドを実行して、現在の変更状態を確認してください。
   ```bash
   git status
+  ```
+  ```bash
   git --no-pager diff --stat
   ```
 
@@ -23,7 +26,7 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
   - 例: `feature/update-readme-alerts-20251227`
   - **Issue番号は含めないでください**。
 
-## Step 4: 💻 粒度の細かいコミット
+## Step 4: 💻 粒度の細かいコミット // turbo
 - `git diff` の内容を分析し、**作業の単位ごとに細かく分割してコミット**します。
 - **コミットメッセージのルール**:
   - **Type（型）**: 以下のリストから適切なものを選んでください。
@@ -38,10 +41,41 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
   - **日本語**で記述すること。
   - **絵文字**をプレフィックスとして付与すること。
   - **3行程度の箇条書き**で詳細を含めること。
+  - **良いコミットメッセージの例**:
+    - `feat` (新機能):
+      ```text
+      ✨ feat: ユーザーログイン機能の実装
+
+      - ログインフォームのUIコンポーネントを作成
+      - メールアドレスとパスワードのバリデーションロジックを追加
+      - 認証APIとの連携処理を実装
+      ```
+    - `fix` (バグ修正):
+      ```text
+      🐛 fix: ヘッダー画像のレスポンシブ崩れを修正
+
+      - モバイル画面での高さを `auto` に変更
+      - フレックスボックスの配置設定を調整
+      - 不要なマージンを削除
+      ```
+    - `docs` (ドキュメント):
+      ```text
+      📝 docs: インストール手順の更新
+
+      - Node.jsの推奨バージョンをv20に更新
+      - 環境変数の設定例 `.env.example` を追加
+      - トラブルシューティングの項目を追記
+      ```
+  - **コミットメッセージの取り扱い**:
+    - **一時ファイル（`COMMIT_MSG.txt`）** にメッセージ内容を作成してからコミットしてください。
+    - `write_to_file` ツールなどを使用してファイルを作成・更新します。
+    - `-F` オプションを使用してファイルを指定します。
   - コマンド例:
     ```bash
     git add [ファイルA]
-    git commit -m "✨ feat: [機能] 日本語の要約" -m "- 詳細な変更点1" -m "- 詳細な変更点2"
+    ```
+    ```bash
+    git commit -F COMMIT_MSG.txt
     ```
 
 ## Step 5: 🔍 コミット確認 // turbo
@@ -52,9 +86,10 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
 
 ## Step 6: 🔄 develop へのマージ // turbo
 1. `develop` ブランチに切り替えます。
-2. `--no-ff` オプションを付けてマージします。
+2. `COMMIT_MSG.txt` にマージメッセージを作成します。
+3. `--no-ff` オプションと `-F` オプションを付けてマージします。
    ```bash
-   git merge --no-ff feature/[ブランチ名] -m "🔀 Merge: [タスク概要]"
+   git merge --no-ff feature/[ブランチ名] -F COMMIT_MSG.txt
    ```
 3. リモートへプッシュします。
 

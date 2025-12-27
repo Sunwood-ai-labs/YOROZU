@@ -33,14 +33,19 @@ try {
         $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
         $g.DrawImage($img, $destRect, $rect, [System.Drawing.GraphicsUnit]::Pixel)
         
-        $destImg.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
+        $tempOutput = $OutputPath + ".tmp"
+        $destImg.Save($tempOutput, [System.Drawing.Imaging.ImageFormat]::Png)
         
         $g.Dispose()
         $destImg.Dispose()
+        
+        $img.Dispose()
+        
+        Move-Item -Path $tempOutput -Destination $OutputPath -Force
         Write-Host "Cropped image to 16:9 ($width x $targetHeight)"
     }
     
-    $img.Dispose()
+    if ($img) { $img.Dispose() }
 } catch {
     Write-Error "Error processing image: $_"
     exit 1
