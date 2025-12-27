@@ -11,12 +11,17 @@ description: ユーザー指定のリポジトリを作成し、YOROZUブラン�
    - **Privacy**: Privateリポジトリとして作成します。
    - **Branch**: `main` ブランチを作成します。
 
-## Step 2: 🌸 YOROZU Identityの適用 // turbo
+## Step 2: 🏗️ アプリケーションの実装
+- `/build-app-simple` を実行します。
+  - ユーザーの要件（作成したいアプリの内容）に基づいて、HTML/CSS/JSで実装を行います。
+  - **重要**: YOROZU Identityを適用する前に、まずアプリ自体の機能を完成させます。
+
+## Step 3: 🌸 YOROZU Identityの適用 // turbo
 - `/update-yorozu-identity` を実行します。
   1. **ヘッダー生成**: 「リポジトリ名」を含んだMiyabiスタイルのヘッダー画像を作成します。
   2. **README更新**: ヘッダー画像を最上部に配置し、GitHub Alertsを追加します。
 
-## Step 3: 💾 変更のコミット // turbo
+## Step 4: 💾 変更のコミット // turbo
 - `/git-auto-commit` の戦略に基づき、Identity適用の変更をコミットします。
   - **Type**: `style` または `docs`
   - **メッセージ**: "✨ style: Apply YOROZU identity and documentation"
@@ -27,7 +32,7 @@ description: ユーザー指定のリポジトリを作成し、YOROZUブラン�
   git push origin main
   ```
 
-## Step 4: 🚀 初回リリースの作成 // turbo
+## Step 5: 🚀 初回リリースの作成 // turbo
 - `/create-release` を実行します。
   - **バージョン**: Alphaテスト中であるため、`v0.1.0-alpha` を指定します。
   - **リリースノート**: 差分分析に基づき、自動生成されたリッチなノートを使用します。
