@@ -1,6 +1,7 @@
 ---
 description: git statusとdiffを解析し、適切なブランチ作成・日本語での粒度の細かいコミット・マージを自動化します
 ---
+
 # 🤖 Git 自動コミットワークフロー (V4.2 Lite)
 
 このワークフローは、[Sunwood-ai-labs MysticLibrary](https://github.com/Sunwood-ai-labs/MysticLibrary) のコミット戦略に基づき、変更内容を解析して適切な粒度でコミットを行います。
@@ -23,7 +24,7 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
   - 例: `feature/update-readme-alerts-20251227`
   - **Issue番号は含めないでください**。
 
-## Step 4: 💻 粒度の細かいコミット
+## Step 4: 💻 粒度の細かいコミット // turbo
 - `git diff` の内容を分析し、**作業の単位ごとに細かく分割してコミット**します。
 - **コミットメッセージのルール**:
   - **Type（型）**: 以下のリストから適切なものを選んでください。
