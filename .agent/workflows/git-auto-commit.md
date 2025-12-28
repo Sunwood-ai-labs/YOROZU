@@ -7,13 +7,17 @@ description: git statusとdiffを解析し、適切なブランチ作成・日�
 このワークフローは、[Sunwood-ai-labs MysticLibrary](https://github.com/Sunwood-ai-labs/MysticLibrary) のコミット戦略に基づき、変更内容を解析して適切な粒度でコミットを行います。
 
 ## Step 1: 🔍 状態確認 // turbo
-- 以下のコマンドを実行して、現在の変更状態を確認してください。
-  ```bash
-  git status
-  ```
-  ```bash
-  git --no-pager diff --stat
-  ```
+以下のコマンドを順に実行して、現在の変更状態を確認してください。**コマンドはセミコロンで連結せず、必ず1つずつ実行してください。**
+
+1. ステータスの確認
+   ```bash
+   git status
+   ```
+
+2. 差分の統計確認
+   ```bash
+   git --no-pager diff --stat
+   ```
 
 ## Step 2: 🌿 develop ブランチの準備 // turbo
 1. `develop` ブランチが存在するか確認します。
