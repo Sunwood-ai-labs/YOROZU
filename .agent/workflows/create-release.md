@@ -1,6 +1,7 @@
 ---
 description: Semantic Versioningに基づくリリース作成と、バージョン入りヘッダー画像の生成を自動化します
 ---
+
 # 🚀 リリース作成ワークフロー
 
 このワークフローは、`main` ブランチの最新状態からGitHubリリースを作成します。バージョン判定、リリースノート生成、および専用ヘッダー画像の作成を自動化します。
@@ -41,28 +42,30 @@ description: Semantic Versioningに基づくリリース作成と、バージョ
   - ツール: `generate_image`, `scripts/crop_header.ps1`
   - 保存先: `assets/release_header_[version].png`
 
-## Step 4: 📝 洗練されたリリースノートの生成 // turbo
-- 単なるログ出力ではなく、以下の手順で高品質なリリースノートを作成します。
-1. **差分分析**: 前回のタグから現在のHEADまでの差分（`git diff`, `git log`）を取得します。
-2. **ノート執筆**: 以下の構成でマークダウンを作成し、`release_notes.md` に保存します。
-   - **ヘッダー画像**: Step 3で作成した画像を最上部に配置（`![Header](url)`）。
-   - **構成ルール**:
-     - **見出し（Headings）は英語**（Overview, Key Features, Code Improvements, etc.）。
-     - **本文は日本語**。
-     - **内容**: コミットログだけでなく、実際のコード差分を分析して技術的な「品質と内容の向上」をアピールします。
-   - **構成例**:
-     ```markdown
-     ![Release Header]([画像URL])
+## Step 4: 📝 洗練されたリリースノートの生成  // turbo
 
-     ## Overview
-     （日本語で概要を記述）
+### 4.1 情報収集
+```bash
+# 変更ファイル一覧
+git diff --stat [前タグ]..HEAD
 
-     ## Key Features
-     - **[機能名]**: （コードレベルの解説を含む日本語説明）
+# コミットログ（種別付き）
+git log --oneline --pretty=format:"%s (%h)" [前タグ]..HEAD
 
-     ## Code Improvements
-     - （リファクタリングやパフォーマンス改善点）
-     ```
+# 貢献者一覧
+git log --format='%an' [前タグ]..HEAD | sort -u
+```
+
+### 4.2 テンプレート適用
+- `templates/release_notes_template.md` をベースに生成
+- 各セクションをコミット分析結果で埋める
+- Breaking Changesがある場合はマイグレーションガイドを必須で含める
+
+### 4.3 品質チェック
+- [ ] Overview が3文以内で要点を伝えているか
+- [ ] 各変更にPR/Issueリンクがあるか
+- [ ] コード例が動作するか
+- [ ] 画像/GIFが適切に表示されるか
 
 ## Step 5: 🚀 リリース作成 // turbo
 - `gh release create` コマンドを使用してリリースを作成します。
