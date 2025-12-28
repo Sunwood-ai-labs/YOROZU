@@ -54,6 +54,8 @@
 
 YOROZUは、複数のプロジェクトを統括する「メタ・ワークスペース」として機能します。
 
+![Architecture Diagram](docs/yorozu-architecture.svg)
+
 ```text
 d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
 ├── .agent/                      <-- 🧠 Agent Brain
@@ -74,17 +76,17 @@ d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
 
 ---
 
-## � Workflow Catalog
+## 📚 Workflow Catalog
 
 利用可能な全ワークフロー（標準作業手順書）の一覧です。
 
 ### 🏗️ Project Creation (作成)
 - **[🚀 Create YOROZU Project Complete](.agent/workflows/create-yorozu-project-complete.md)**: プロジェクト立ち上げの決定版。
-- **[� Create Repo from Folder](.agent/workflows/create-repo-from-folder.md)**: 既存フォルダのリポジトリ化。
+- **[📂 Create Repo from Folder](.agent/workflows/create-repo-from-folder.md)**: 既存フォルダのリポジトリ化。
 - **[🧠 Create Prompt Repo](.agent/workflows/create-prompt-repo.md)**: プロンプト管理専用リポジトリの作成。
 
 ### 💻 Development (開発)
-- **[�️ Build App Simple](.agent/workflows/build-app-simple.md)**: 高速なプロトタイプ・アプリ開発。
+- **[🏗️ Build App Simple](.agent/workflows/build-app-simple.md)**: 高速なプロトタイプ・アプリ開発。
 - **[💾 Git Auto Commit](.agent/workflows/git-auto-commit.md)**: 粒度の細かいコミットとブランチ管理の自動化。
 
 ### 🎨 Branding & Assets (意匠)
@@ -97,7 +99,7 @@ d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
 
 ---
 
-## �️ Rules & Policies
+## ⚖️ Rules & Policies
 
 エージェントは以下のルール（[`.agent/rules`](.agent/rules/)）に従って自律的に判断を行います。
 
