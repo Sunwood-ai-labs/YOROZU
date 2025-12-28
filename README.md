@@ -26,7 +26,7 @@
 これは、**「反復作業の重力」から開発者を解放するための、Google Antigravity専用の管制塔（Mission Control）** です。
 
 従来の開発環境が「コードを書く場所」であったのに対し、YOROZUは「エージェントにタスクを委任し、指揮する場所」として設計されています。
-`GAS_PROJECT` 配下に生成される全てのリポジトリは、ここで定義された **Rules（憲法）** と **Workflows（標準作業手順）** によって、統一された高品質な基準で管理されます。
+`YOROZU_PROJECT` 配下に生成される全てのリポジトリは、ここで定義された **Rules（憲法）** と **Workflows（標準作業手順）** によって、統一された高品質な基準で管理されます。
 
 ### Core Philosophy
 - **Automate Everything**: 初期化、コミット、リリース、品質チェックまで、あらゆるプロセスをWorkflowとして定義。
@@ -57,12 +57,12 @@ YOROZUは、複数のプロジェクトを統括する「メタ・ワークス�
 ![Architecture Diagram](docs/yorozu-architecture.svg)
 
 ```text
-d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
+d:/Prj/YOROZU/            <-- 🛰️ Mission Control (Current)
 ├── .agent/                      <-- 🧠 Agent Brain
 │   ├── rules/                   <-- 憲法 (Coding Standards, Branding Rules)
 │   └── workflows/               <-- 手順書 (Deployment, Refactoring SOPs)
 │
-├── GAS_PROJECT/                 <-- 🏭 Project Factory
+├── YOROZU_PROJECT/                 <-- 🏭 Project Factory
 │   ├── my-cool-project/         <-- 📦 Generated Repo 1
 │   ├── another-service/         <-- 📦 Generated Repo 2
 │   └── prompt-repo/             <-- 📦 Prompt Management
@@ -71,7 +71,7 @@ d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
 ```
 
 - **Mission Control**: あなたはここで指令を出します。
-- **Project Factory**: エージェントは `GAS_PROJECT` ディレクトリ内に成果物を生成します。
+- **Project Factory**: エージェントは `YOROZU_PROJECT` ディレクトリ内に成果物を生成します。
 - **Agent Brain**: エージェントの行動指針は全て `.agent` 内に集約されており、ここを修正するだけで全プロジェクトの挙動を調整できます。
 
 ---

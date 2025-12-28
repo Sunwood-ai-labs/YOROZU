@@ -1,6 +1,6 @@
 param (
-    [string]$InputPath = "d:\Prj\GAG_Workspace\assets\header.png",
-    [string]$OutputPath = "d:\Prj\GAG_Workspace\assets\header.png"
+    [string]$InputPath = "d:\Prj\YOROZU\assets\header.png",
+    [string]$OutputPath = "d:\Prj\YOROZU\assets\header.png"
 )
 
 Add-Type -AssemblyName System.Drawing
