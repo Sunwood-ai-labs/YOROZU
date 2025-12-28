@@ -54,7 +54,7 @@
 
 YOROZUは、複数のプロジェクトを統括する「メタ・ワークスペース」として機能します。
 
-![Architecture Diagram](docs/architecture.svg)
+![Architecture Diagram](docs/yorozu-architecture.svg)
 
 ```text
 d:/Prj/GAG_Workspace/            <-- 🛰️ Mission Control (Current)
