@@ -1,18 +1,17 @@
 ﻿---
 slug: operational-rules
-description: Defines standard operational commands and procedures.
+description: 標準的な運用コマンドと手順を定義します。
 trigger: model_decision
 ---
-# Operational Standards
+# 運用基準
 
-## Build & Test
-- **Build Command**: pnpm run build (or 
-pm run build in contexts where pnpm is not available)
-- **Test Command**: 
-ode --test (native Node.js test runner) or 
-pm test`r
-- **Install Command**: pnpm install`r
+## ビルドとテスト
+- **ビルドコマンド**: `pnpm run build` (または、pnpmが利用できない環境では `npm run build`)
+- **テストコマンド**: 
+  - `node --test` (ネイティブNode.jsテストランナー) または 
+  - `npm test`
+- **インストールコマンド**: `pnpm install`
 
-## Version Control
-- **Commits**: Use semantically meaningful messages (Japanese preferred for descriptions).
-- **Branching**: Follow Git Flow (develop, feature/xxx, main).
+## バージョン管理
+- **コミット**: 意味のあるメッセージを使用してください（説明は日本語を推奨）。
+- **ブランチ戦略**: Git Flowに従ってください (develop, feature/xxx, main)。

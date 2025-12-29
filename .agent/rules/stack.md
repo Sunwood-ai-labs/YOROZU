@@ -1,17 +1,17 @@
 ﻿---
 slug: tech-stack
-description: Defines the core technology stack for the project.
+description: プロジェクトのコア技術スタックを定義します。
 trigger: always_on
 ---
-# Technology Stack
+# 技術スタック
 
-- **Runtime**: Node.js (Latest LTS)
-- **Package Manager**: pnpm
-- **Languages**: 
-  - TypeScript (for MCP Servers and backend logic)
+- **ランタイム**: Node.js (最新LTS)
+- **パッケージマネージャー**: pnpm
+- **言語**: 
+  - TypeScript (MCPサーバーおよびバックエンドロジック用)
   - JavaScript (ES Modules)
-  - HTML5 / CSS3 (for UI)
-- **Frameworks/Libraries**:
-  - @modelcontextprotocol/sdk (MCP Server implementation)
-  - @fal-ai/client (Fal AI integration)
-  - React (if applicable for UI components)
+  - HTML5 / CSS3 (UI用)
+- **フレームワーク/ライブラリ**:
+  - @modelcontextprotocol/sdk (MCPサーバー実装用)
+  - @fal-ai/client (Fal AI統合用)
+  - React (UIコンポーネントに適用可能な場合)
