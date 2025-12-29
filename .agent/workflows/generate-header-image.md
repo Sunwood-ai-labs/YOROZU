@@ -19,12 +19,10 @@ description: READMEやリリースノート用の高品質なヘッダー画像�
 ## Step 2: 🎨 画像生成 // turbo
 - `generate_image` ツールを使用して画像を生成します。
   - **リトライ**: エラーが発生したり、予期せぬ結果が出た場合は、最大 **5回** までリトライしてください。
-- **フォールバック**: 5回のリトライ後も失敗する場合は、以下の手順でスクリプト実行に切り替えます。
-  1. コマンド `node scripts/generate_image.js --prompt "..." --aspect-ratio "16:9" --output-format "png"` を実行します（プロンプトはStep 1で作成したものを使用）。
-  2. スクリプトの出力から画像URL（例: `Image 1: https://...` by regex `Image \d+: (https?://\S+)`）を取得します。
-  3. そのURLから画像をダウンロードし、一時ファイル `assets/header_temp.png` として保存します（`curl` や `wget`、`Invoke-WebRequest`、またはブラウザツールを使用可能）。
-- プロンプトには「16:9 composition squeezed into square」といった指示を含め、生成モデルが要素を中央に寄せるように誘導します。（ツール・スクリプト共通）
-- 一時ファイル `assets/header_temp.png` として保存します。
+- **フォールバック**: 5回のリトライ後も失敗する場合は、`fal-mcp-server-gentou` MCPサーバーの `generate_image` ツール（または同等の機能）を使用して生成を試みます。
+- プロンプトには「16:9 composition squeezed into square」といった指示を含め、生成モデルが要素を中央に寄せるように誘導します。
+- 生成された画像URLからダウンロードし、一時ファイル `assets/header_temp.png` として保存します。
+
 
 ## Step 3: ✂️ クロップ処理 // turbo
 - `scripts/crop_header.ps1` を実行して、画像を 16:9 (1024x576) にクロップします。
